@@ -1,0 +1,495 @@
+/* ==================== CSS Variables ==================== */
+:root {
+  --primary-color: #6366f1;
+  --primary-dark: #4f46e5;
+  --primary-light: #818cf8;
+  --accent-color: #ec4899;
+  --success-color: #10b981;
+  --danger-color: #ef4444;
+  --warning-color: #f59e0b;
+  --gray-50: #f9fafb;
+  --gray-100: #f3f4f6;
+  --gray-200: #e5e7eb;
+  --gray-300: #d1d5db;
+  --gray-400: #9ca3af;
+  --gray-500: #6b7280;
+  --gray-600: #4b5563;
+  --gray-700: #374151;
+  --gray-800: #1f2937;
+  --gray-900: #111827;
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --transition-base: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+}
+
+/* ==================== Global Styles ==================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background-attachment: fixed;
+  color: var(--gray-900);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* ==================== App Shell ==================== */
+.app-shell {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* ==================== Header ==================== */
+.app-header {
+  background: white;
+  padding: 2rem 1rem;
+  box-shadow: var(--shadow-md);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.app-branding {
+  text-align: center;
+}
+
+.app-title {
+  font-size: 2rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.5rem;
+}
+
+.app-subtitle {
+  color: var(--gray-500);
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+/* ==================== Main Content Container ==================== */
+.app-main {
+  flex: 1;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 1fr;
+}
+
+/* ==================== Panels/Cards ==================== */
+.panel {
+  background: white;
+  border-radius: var(--radius-xl);
+  padding: 2rem;
+  box-shadow: var(--shadow-lg);
+  transition: var(--transition-base);
+}
+
+.panel:hover {
+  box-shadow: var(--shadow-xl);
+  transform: translateY(-2px);
+}
+
+.panel h2 {
+  font-size: 1.5rem;
+  color: var(--gray-800);
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--gray-100);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* ==================== Form Styles ==================== */
+.expense-form {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  border: none;
+}
+
+.form-group label {
+  font-weight: 600;
+  color: var(--gray-700);
+  font-size: 0.95rem;
+}
+
+.form-control {
+  padding: 0.75rem 1rem;
+  border: 2px solid var(--gray-200);
+  border-radius: var(--radius-md);
+  font-size: 1rem;
+  transition: var(--transition-base);
+  font-family: inherit;
+}
+
+.form-control:hover {
+  border-color: var(--gray-300);
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+/* ==================== Buttons ==================== */
+.button {
+  padding: 0.875rem 1.5rem;
+  border: none;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: var(--transition-base);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: inherit;
+}
+
+.button-primary {
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+  color: white;
+  width: 100%;
+}
+
+.button-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.button-primary:active {
+  transform: translateY(0);
+}
+
+.button-danger {
+  background: var(--danger-color);
+  color: white;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+}
+
+.button-danger:hover {
+  background: #dc2626;
+  transform: scale(1.05);
+}
+
+/* ==================== Expense List ==================== */
+.expense-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.expense-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem;
+  background: linear-gradient(135deg, var(--gray-50) 0%, var(--gray-100) 100%);
+  border-radius: var(--radius-lg);
+  border-left: 4px solid var(--primary-color);
+  transition: var(--transition-base);
+  animation: slideIn 0.3s ease-out;
+}
+
+.expense-item:hover {
+  background: linear-gradient(135deg, var(--gray-100) 0%, var(--gray-200) 100%);
+  transform: translateX(4px);
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.expense-info {
+  flex: 1;
+}
+
+.expense-category {
+  font-weight: 600;
+  color: var(--gray-800);
+  font-size: 1.05rem;
+  margin-bottom: 0.25rem;
+}
+
+.expense-amount {
+  font-size: 1.25rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.expense-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-left: 1rem;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: var(--gray-400);
+}
+
+.empty-state-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+/* ==================== Stats ==================== */
+.stats-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1.5rem;
+}
+
+.stats-item {
+  padding: 1.5rem;
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+  border-radius: var(--radius-lg);
+  color: white;
+  text-align: center;
+}
+
+.stats-item dt {
+  font-size: 0.9rem;
+  font-weight: 500;
+  opacity: 0.9;
+  margin-bottom: 0.5rem;
+}
+
+.stats-item dd {
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+
+/* ==================== Summary ==================== */
+.summary-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem;
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+  border-radius: var(--radius-lg);
+  color: white;
+}
+
+.summary-label {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.summary-value {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+/* ==================== Responsive Design ==================== */
+@media (max-width: 768px) {
+  .app-title {
+    font-size: 1.5rem;
+  }
+
+  .app-subtitle {
+    font-size: 0.85rem;
+  }
+
+  .app-header {
+    padding: 1.5rem 1rem;
+  }
+
+  .panel {
+    padding: 1.5rem;
+  }
+
+  .app-main {
+    padding: 1.5rem 1rem;
+    gap: 1.5rem;
+  }
+
+  .panel h2 {
+    font-size: 1.25rem;
+  }
+
+  .expense-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .expense-actions {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .button-danger {
+    width: 100%;
+  }
+
+  .summary-card {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  .stats-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    font-size: 14px;
+  }
+
+  .app-title {
+    font-size: 1.25rem;
+  }
+
+  .app-header {
+    padding: 1rem;
+  }
+
+  .panel {
+    padding: 1rem;
+    border-radius: var(--radius-lg);
+  }
+
+  .app-main {
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .panel h2 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+  }
+
+  .form-group {
+    gap: 0.375rem;
+  }
+
+  .form-control {
+    padding: 0.625rem 0.875rem;
+    font-size: 0.95rem;
+  }
+
+  .button {
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .expense-item {
+    padding: 1rem;
+  }
+
+  .expense-category {
+    font-size: 1rem;
+  }
+
+  .expense-amount {
+    font-size: 1.1rem;
+  }
+
+  .summary-value {
+    font-size: 1.5rem;
+  }
+}
+
+/* ==================== Accessibility ==================== */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+  }
+
+  .panel {
+    background: var(--gray-800);
+    color: var(--gray-50);
+  }
+
+  .panel h2 {
+    color: var(--gray-100);
+    border-bottom-color: var(--gray-700);
+  }
+
+  .app-header {
+    background: var(--gray-800);
+    border-bottom: 1px solid var(--gray-700);
+  }
+
+  .app-subtitle {
+    color: var(--gray-400);
+  }
+
+  .form-group label {
+    color: var(--gray-300);
+  }
+
+  .form-control {
+    background: var(--gray-700);
+    border-color: var(--gray-600);
+    color: var(--gray-100);
+  }
+
+  .form-control:focus {
+    border-color: var(--primary-color);
+    background: var(--gray-700);
+  }
+
+  .expense-item {
+    background: linear-gradient(135deg, var(--gray-700) 0%, var(--gray-800) 100%);
+  }
+
+  .expense-category {
+    color: var(--gray-100);
+  }
+}
