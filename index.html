@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html lang="bg">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Finance Tracker</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="app-header">
+        <div class="app-branding">
+          <h1 class="app-title">Finance Tracker</h1>
+          <p class="app-subtitle">Проследявай разходите си лесно и бързо</p>
+        </div>
+      </header>
+
+      <main class="app-main" id="main-content">
+        <section class="panel panel-form" aria-labelledby="entry-heading">
+          <h2 id="entry-heading">Добавяне на разход</h2>
+          <form class="expense-form" id="expense-form">
+            <fieldset class="form-group">
+              <label for="category-input">Категория</label>
+              <input type="text" id="category-input" name="category" class="form-control" placeholder="Например: Храна" required />
+            </fieldset>
+
+            <fieldset class="form-group">
+              <label for="amount-input">Сума</label>
+              <input type="number" id="amount-input" name="amount" class="form-control" placeholder="0.00" step="0.01" min="0" required />
+            </fieldset>
+
+            <button type="submit" class="button button-primary">Добави разход</button>
+          </form>
+        </section>
+
+        <section class="panel panel-list" aria-labelledby="list-heading">
+          <h2 id="list-heading">Списък на разходите</h2>
+          <ul class="expense-list" id="expense-list">
+            <!-- Тук ще се добавят елементи с JavaScript -->
+          </ul>
+        </section>
+
+        <section class="panel panel-stats" aria-labelledby="stats-heading">
+          <h2 id="stats-heading">Статистика</h2>
+          <dl class="stats-list">
+            <div class="stats-item">
+              <dt>Общо разходи</dt>
+              <dd id="stats-total-expenses">0</dd>
+            </div>
+            <div class="stats-item">
+              <dt>Брой разходи</dt>
+              <dd id="stats-count">0</dd>
+            </div>
+            <div class="stats-item">
+              <dt>Най-голям разход</dt>
+              <dd id="stats-highest">0.00 лв.</dd>
+            </div>
+          </dl>
+        </section>
+
+        <aside class="panel panel-summary" aria-labelledby="total-heading">
+          <h2 id="total-heading">Обща сума</h2>
+          <div class="summary-card" id="total-summary" aria-live="polite">
+            <span class="summary-label">Общо:</span>
+            <span class="summary-value" id="total-value">0.00 лв.</span>
+          </div>
+        </aside>
+      </main>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
